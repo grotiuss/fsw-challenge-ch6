@@ -25,9 +25,10 @@ router.get('/accounts', async(req, res) => {
     await User_game.findAll()
         .then( (datas) => {
             datas.forEach( (data) => {
-                if( !data.asAdmin ){
-                    users.push(data)
-                }
+                // if( !data.asAdmin ){
+                //     users.push(data)
+                // }
+                users.push(data)
             } )
         } )
     
@@ -55,6 +56,7 @@ router.get('/accounts', async(req, res) => {
             id: data.id,
             username: data.username,
             password: data.password,
+            asAdmin: data.asAdmin,
             fullname: result.fullname,
             address: result.address,
             login_succeed: result1.login_succeed,
