@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN | Accounts</title>
+
+    <%- include('../partials/header') %>
+
+        <style>
+            #admin-page {
+                background-image: url('https://images.unsplash.com/photo-1565018968331-61145555526b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80');
+                /* background-position: center; */
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            #pageNote{
+                color: white;
+            }
+
+            .blur {
+                background: rgba(10, 10, 10, 0.2);
+                backdrop-filter: blur(8px);
+                height: 100vh;
+                width: 100%;
+            }
+
+            #admin-form {
+                border-color: white;
+                border-style: solid;
+                padding-top: 3em;
+                padding-bottom: 3em;
+            }
+
+            .form-label {
+                color: white;
+                font-weight: bold;
+                font-size: 1.3em;
+            }
+
+            .form-control {
+                color: white;
+                background-color: transparent;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-radius: 0px
+            }
+
+            .form-control:focus {
+                background-color: transparent;
+                color: white;
+                border-color: white;
+            }
+
+            .form-control::placeholder {
+                color: white;
+            }
+
+            .btn {
+                color: white;
+                border-radius: 0px;
+                width: 100%;
+            }
+
+            .btn:hover {
+                color: white;
+                box-shadow: 5px 5px;
+            }
+
+            .btn:active {
+                background-color: white;
+                color: black;
+                box-shadow: none;
+            }
+
+            #table-accounts{
+                color:white;
+                font-size: small;
+            }
+        </style>
+
+</head>
+
+<body id='admin-page'>
+    <%- include('../partials/navbar') %>
+        <div class='blur pt-5'>
+            <div class='container mt-5'>
+                <div class="row justify-content-center">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 text-center">
+                        <div id="admin-form" class="ps-5 pe-5">
+                            <h2>ADMIN</h2>
+                            <p id='pageNote'> Setting Accounts </p>
+
+                            <table id="table-accounts" class='table table-dark'>
+                                <thead>
+                                    <tr>
+                                        <th>ID </th>
+                                        <th>Username</th>
+                                        <th>Fullname</th>
+                                        <th>Login Success</th>
+                                        <th>Login Failed</th>
+                                        <th>Win Total</th>
+                                        <th>Lose Total</th>
+                                        <th>Draw Total</th>
+                                        <th>ACTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% let i=0 %>
+                                    <% account_datas.forEach( data => { %>
+                                    <tr>
+                                        <td><%= ++i %></td>
+                                        <td><%= data.username %></td>
+                                        <td><%= data.fullname %></td>
+                                        <td><%= data.login_succeed %></td>
+                                        <td><%= data.login_failed %></td>
+                                        <td><%= data.win_total %></td>
+                                        <td><%= data.lose_total %></td>
+                                        <td><%= data.draw_total %></td>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <a href='/admin/accounts/edit/<%= data.id %>' class="btn btn-primary btn-sm">Edit</a>
+                                                </div>
+                                                <div class="col-6">
+                                                    <a href='/admin/accounts/delete/<%= data.id %>' class="btn btn-danger btn-sm">Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('../partials/js') %>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTER</title>
+
+    <%- include('partials/header') %>
+
+        <style>
+            #register-page {
+                background-image: url('https://images.unsplash.com/photo-1565018968331-61145555526b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80');
+                /* background-position: center; */
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            #registerPageNote{
+                color: white;
+            }
+
+            .blur {
+                background: rgba(10, 10, 10, 0.2);
+                backdrop-filter: blur(8px);
+                height: 100vh;
+                width: 100%;
+            }
+
+            #login-form {
+                border-color: white;
+                border-style: solid;
+                padding-top: 3em;
+                padding-bottom: 3em;
+            }
+
+            .form-label {
+                color: white;
+                font-weight: bold;
+                font-size: 1.3em;
+            }
+
+            .form-control {
+                color: white;
+                background-color: transparent;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-radius: 0px
+            }
+
+            .form-control:focus {
+                background-color: transparent;
+                color: white;
+                border-color: white;
+            }
+
+            .form-control::placeholder {
+                color: white;
+            }
+
+            .btn {
+                color: white;
+                border-radius: 0px;
+                width: 100%;
+            }
+
+            .btn:hover {
+                color: white;
+                box-shadow: 5px 5px;
+            }
+
+            .btn:active {
+                background-color: white;
+                color: black;
+                box-shadow: none;
+            }
+        </style>
+
+</head>
+
+<body id='register-page'>
+    <%- include('partials/navbar') %>
+        <div class='blur pt-5'>
+            <div class='container mt-5'>
+                <div class="row justify-content-center">
+                    <div class="col-xl-4 col-lg-6 col-md-8 col-10 text-center">
+                        <form action="/register" method="POST" id='login-form' class='ps-5 pe-5'>
+                            <h2>REGISTER</h2>
+                            <p id='registerPageNote'> <%= registerPageNote %> </p>
+                            <div class="mt-3 text-start">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" name="username"
+                                    placeholder="Type your username" required>
+                            </div>
+
+                            <div class="mt-3 text-start">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Type your password" required>
+                            </div>
+
+                            <div class="mt-4 text-center">
+                                <button type="submit" class="btn">
+                                    <b>Sign up</b>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('partials/js') %>
+</body>
+
+</html>

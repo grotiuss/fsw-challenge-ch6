@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game | Login</title>
+
+    <%- include('partials/header') %>
+
+    <style>
+        #sign-in-head{
+            color: rgb(126, 126, 126);
+            font-size: 1.5em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #sign-up-head{
+            color: black;
+            font-size: 1.5em;
+            text-decoration: none;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        #form-button{
+            border-radius: 0px;
+            /* border-color: black; */
+        }
+
+        #form-button:hover{
+            border-radius: 0px;
+            box-shadow: 5px 5px #000000;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+
+        <div class="row justify-content-center mt-5">
+            <div class='col-md-4 col-8'>
+                <form id='login-form' action='/game/register' method='POST'>
+                    <div class="row justify-content-center">
+                        <div class="col text-end">
+                            <a id='sign-in-head' href="/game/login">SIGN IN</a>
+                        </div>
+                        <div class='col'>
+                            <a id='sign-up-head' href="/game/register">SIGN UP</a>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                            placeholder="Type your username" required>
+                    </div>
+                    <div class="mt-4">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="Type your password" required>
+                    </div>
+
+                    <div class="mt-4 text-center">
+                        <button id = 'form-button' type="submit" class="btn"><b>Register</b></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>

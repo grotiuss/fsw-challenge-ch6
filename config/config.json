@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "root",
+    "database": "fsw_challenge_ch6",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "root",
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "root",
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

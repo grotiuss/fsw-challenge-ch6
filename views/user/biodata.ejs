@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Biodata</title>
+
+    <%- include('../partials/header') %>
+
+        <style>
+            #login-page {
+                background-image: url('https://images.unsplash.com/photo-1553991562-9f24b119ff51?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1039&q=80');
+                /* background-position: center; */
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .blur {
+                background: rgba(10, 10, 10, 0.2);
+                backdrop-filter: blur(8px);
+                height: 100vh;
+                width: 100%;
+            }
+
+            #biodata {
+                border-color: white;
+                border-style: solid;
+                padding-top: 3em;
+                padding-bottom: 3em;
+                color: white;
+            }
+
+            .form-label {
+                color: white;
+                font-weight: bold;
+                font-size: 1.3em;
+            }
+
+            .form-control {
+                color: white;
+                background-color: transparent;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-radius: 0px
+            }
+
+            .form-control:focus {
+                background-color: transparent;
+                color: white;
+                border-color: white;
+            }
+
+            .form-control::placeholder {
+                color: white;
+            }
+
+            .btn{
+                color: white;
+                border-radius: 0px;
+                width: 100%;
+            }
+            .btn:hover{
+                color: white;
+                box-shadow: 5px 5px;
+            }
+            .btn:active{
+                background-color: white;
+                color: black;
+                box-shadow: none;
+            }
+
+            #status{
+                color: white;
+            }
+        </style>
+
+</head>
+
+<body id='login-page'>
+    <%- include('../partials/navbar') %>
+        <div class='blur pt-5'>
+            <div class='container mt-5'>
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-8 col-md-10 col-10 text-center">
+                        <div id='biodata' class='ps-5 pe-5'>
+                            <h2>BIODATA</h2>
+                            <div class="text-start mt-5">
+                                <div class="row">
+                                    <div class="col"><b>FULLNAME</b></div>
+                                    <div class="col"><%= fullName %></div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col"><b>Address</b></div>
+                                    <div class="col"><%= address %></div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col"><b>AGE</b></div>
+                                    <div class="col"><%= age %></div>
+                                </div>
+                                <div class="row mt-5 text-center">
+                                    <div class="col">
+                                        <a href = '/user/<%= id %>/update'type="submit" class="btn">
+                                            <b>UDATE BIO</b>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('../partials/js') %>
+        <script>
+            var statusSign = document.getElementById('status-1')
+            var statusColumn = document.getElementById('status')
+
+            if(statusSign.innerText.length == 0){
+                statusColumn.style.display = 'none'
+            }
+        </script>
+</body>
+
+</html>

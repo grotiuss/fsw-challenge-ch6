@@ -1,0 +1,64 @@
+<nav id='navbar' class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">LOGO</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-10 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">WORK</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">CONTACT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ABOUT ME</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a id='sign-up-nav-item' class="nav-link" href="/register">SIGN UP</a>
+                </li>
+                <li id='greeting-user' class="nav-item mt-2 me-3">
+                    <span>Welcome, 
+                        <a href="/user/<%= id %>/biodata" id='username' style="font-weight: bold;">
+                            <%= username %>
+                        </a>
+                        <!-- <button id='usernameButton' style="font-weight: bold;">
+                            <%= username %>
+                        </button> -->
+                    </span>
+                </li>
+
+                <li class="nav-item">
+                    <a id='login-nav-item' class="nav-link" href="/login">LOGIN</a>
+                    <a id='logout-nav-item' class="nav-link" href="/logout">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script>
+    let username = document.getElementById('username')
+    let greetingUser = document.getElementById('greeting-user')
+    let signUpTab = document.getElementById('sign-up-nav-item')
+    let logoutTab = document.getElementById('logout-nav-item')
+    let loginTab = document.getElementById('login-nav-item')
+
+    greetingUser.style.color = 'white'
+
+    if (username.innerText) {
+        signUpTab.style.display = 'none'
+        loginTab.style.display = 'none'
+
+    } else {
+        greetingUser.style.display = 'none'
+        logoutTab.style.display = 'none'
+    }
+</script>

@@ -1,0 +1,155 @@
+#navbar{
+    background-color: rgba(0, 0, 0, 0.7)
+}
+
+#header {
+    background-image: linear-gradient(transparent 5em, black), url(assets/main-bg.jpg), url(assets/main-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+#second-section {
+    background-image: linear-gradient(black, transparent 7em), linear-gradient(transparent 5em, black), url(assets/the-games-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+#third-section {
+    background-image: linear-gradient(black, transparent 7em), linear-gradient(transparent 5em, black), url(assets/features.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    max-height: 100%;
+}
+
+#fourth-section {
+    background-image: linear-gradient(black, transparent 7em), linear-gradient(transparent 5em, black), url(assets/requirements.png);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+#fifth-section {
+    background-image: linear-gradient(black, transparent 7em), linear-gradient(transparent 5em, black), url(assets/top-score-bg.png), url(assets/5th-background.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    max-height: 100%;
+}
+
+#sixth-section {
+    background-image: linear-gradient(black, transparent 7em), linear-gradient(transparent 5em, black), url(assets/top-score-bg.png), url(assets/newsletter.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    max-height: 100%;
+    padding-top: 3em;
+}
+
+#selectedSection {
+    display: none;
+}
+
+.navbar-brand {
+    padding-right: 3em;
+}
+
+.body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    color: white;
+}
+
+.sub-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: white;
+}
+
+.navigation {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+.main-button {
+    font-family: 'Open Sans', sans-serif;
+    background-image: linear-gradient(194.68deg, #FFB548 11.27%, #F3AF34 90.4%);
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    color: black
+}
+
+.story-scroll-down {
+    animation: scrollDown 1.2s infinite;
+}
+
+.col-md-1 i {
+    font-size: 8px;
+    padding-top: 20px
+}
+
+.col-md-11 h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    color: rgb(209, 138, 5);
+}
+
+.requirement-1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    font-size: 24px;
+    color: rgb(209, 138, 5);
+}
+
+.profile {
+    height: 60px;
+}
+
+.profile-name {
+    font-size: 17px;
+    color: orange;
+}
+
+.profile-prof {
+    font-size: 15px;
+    color: grey;
+}
+
+.profile-date {
+    font-size: 12px;
+    color: darkslategrey
+}
+
+.image-content {
+    height: 23em;
+    max-width: 100%;
+
+}
+
+
+h1 {
+    font-family: 'Bebas Neue', cursive;
+
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+}
+
+h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
+
+h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}

@@ -1,0 +1,133 @@
+#back_{
+    color: black;
+    text-decoration: none;
+}
+
+#back{
+    font-size: 4em;
+    margin-top: -0.3em;
+    color: black
+}
+#back:hover{
+    color: white
+}
+
+#login-form{
+    background-color: white;
+    border-radius: 10px;
+    border-color: transparent;
+    padding: 3em;
+    box-shadow: 5px 10px;
+}
+
+.form-label{
+    font-weight: bold;
+}
+
+.form-control{
+    border-radius: 0px;
+    border-color: black;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+}
+
+@media (min-width: 576px) {
+    #title{
+        font-size: 2em;
+        color: #F9B23D;
+        text-shadow: 2px 2px 5px black;
+    }
+}
+
+@media (min-width: 768px) {
+    #title{
+        font-size: 2.8em;
+    }
+    .tool{
+        width: 7em;
+        margin: 1em
+    }
+
+    .tool-bg{
+        width: 10em;
+        border-radius: 20%;
+        margin: 1em;
+        margin-left: 1.5em;
+    }
+}
+
+@media (min-width: 992px) {
+    .tool-bg{
+        width: 11em;
+        margin-left: 3.5em
+    }
+
+}
+
+@media (min-width: 1200px) {
+    #title{
+        font-size: 2.8em;
+        margin-left: -1em;
+    }
+    .tool-bg{
+        width: 11em;
+        margin-left: 6em
+    }
+}
+
+@media (min-width: 1400px) {
+    #back{
+        font-size: 4em;
+        margin-top: -0.3em;
+        margin-left: 0.2em
+    }
+    .tool-bg{
+        width: 11em;
+        margin-left: 8em
+    }
+}
+
+@media (max-width: 575.9px) {
+    #title{
+        display: none;
+        font-size: 3em;
+    }
+    
+    /* #nav-header{
+    
+    }
+    
+    #logo{
+    
+    } */
+}
+
+@media (max-width: 767.9px) {
+    #desktop{
+        display: none;
+    }
+
+
+}
+
+/* .tool-bg:hover{
+    background-color: #C4C4C4;
+    border-color: #C4C4C4;
+} */
+
+.tool-btn{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+
+
+body{
+    background-color: #9C835F;
+}
+
+.game-navbar{
+    background-color: #9C835F;
+    height: 5em;
+}

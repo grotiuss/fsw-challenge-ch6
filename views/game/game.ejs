@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+
+    <%- include('partials/header') %>
+
+    <style>
+        #result{
+            visibility: hidden;
+            background-color: #4C9654;
+            height: 6em;
+            transform: rotate(-20deg);
+            text-align: center;
+            color: white;
+        }
+
+        #versus{
+            color: #BD0000;
+            font-size: 7em;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+
+    <!-- Medium-Large Screen Verion -->
+    <div class='container mt-4' id='desktop'>
+        <div class="row justify-content-between text-center">
+            <div class="col-md-4">
+                <h1 id='username'><%= username %></h1>
+            </div>
+            <div class="col-md-4">
+                <h1>Computer</h1>
+            </div>
+        </div>
+        <div class="row justify-content-between text-center mt-3">
+            <div class="col-md-4">
+                <div class='tool-bg'>
+                    <button id='r-player' class='tool-btn' onclick = player.chooseRock()>
+                        <img src="/assets/batu.png" alt="" class='tool'>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class='tool-bg'>
+                    <button id='r-com' class='tool-btn'>
+                        <img src="/assets/batu.png" alt="" class='tool'>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center text-center">
+            <div class="col-md-4">
+                <div class='tool-bg'>
+                    <button id='p-player' class='tool-btn' onclick=player.choosePaper()>
+                        <img src="/assets/kertas.png" alt="" class='tool' style="width: 6em">
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <h1 id='versus'>VS</h1>
+                <div id='result'>
+                    <h1>PARTICIPANT <br> WIN</h1>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class='tool-bg'>
+                    <button id='p-com' class='tool-btn'>
+                        <img src="/assets/kertas.png" alt="" class='tool' style="width: 6em">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class='tool-bg'>
+                    <button id='s-player' class='tool-btn' onclick=player.chooseScissor()>
+                        <img src="/assets/gunting.png" alt="" class='tool'>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <button class = 'tool-btn' id='reset' onclick=reset()>
+                    <img src="/assets/refresh.png" alt="refresh" style="width: 5em;">
+                </button>
+            </div>
+            <div class="col-md-4">
+                <div class='tool-bg'>
+                    <button id='s-com' class='tool-btn'>
+                        <img src="/assets/gunting.png" alt="" class='tool'>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <!-- Game JS  -->
+    <script src="/js/game.js"></script>
+
+    <script>
+        var username = document.getElementById('username')
+        if(!username.innerText){
+            username.innerText = 'PlayerUsername'
+        }
+    </script>
+</body>
+
+</html>
