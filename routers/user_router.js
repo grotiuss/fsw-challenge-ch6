@@ -12,6 +12,7 @@ let updatePageNote = ''
 router.use((req, res, next) => {
     user_session.id = router.params.id
     user_session.username = router.params.username
+    user_session.asAdmin = router.params.asAdmin
     next()
 })
 
@@ -32,6 +33,7 @@ router.get('/:userId/biodata', async(req,res) => {
             res.render('user/biodata', {
                 id: user_session.id,
                 username: user_session.username,
+                asAdmin: user_session.asAdmin,
                 registerPageNote: registerPageNote,
                 fullName: user.fullname,
                 age: user.age,
@@ -54,6 +56,7 @@ router.get('/:userId/update', async(req, res) => {
             res.render('user/update', {
                 id: user_session.id,
                 username: user_session.username,
+                asAdmin: user_session.asAdmin,
                 registerPageNote: registerPageNote,
                 fullName: user.fullname,
                 age: user.age,

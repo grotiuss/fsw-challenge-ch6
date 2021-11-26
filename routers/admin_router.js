@@ -11,6 +11,7 @@ let updatePageNote = ''
 router.use((req, res, next) => {
     user_session.id = router.params.id
     user_session.username = router.params.username
+    user_session.asAdmin = router.params.asAdmin
     next()
 })
 
@@ -69,6 +70,7 @@ router.get('/accounts', async(req, res) => {
     res.render('admin/accounts', {
         id: user_session.id,
         username: user_session.username,
+        asAdmin: user_session.username,
         account_datas: users_master_data
     })
 })
@@ -111,6 +113,7 @@ router.get('/accounts/edit/:userId', async(req, res) => {
             res.render('admin/edit', {
                 id: user_session.id,
                 username: user_session.username,
+                asAdmin: user_session.username,
                 userId: req.params.userId,
                 registerPageNote: registerPageNote,
                 fullName: user.fullname,

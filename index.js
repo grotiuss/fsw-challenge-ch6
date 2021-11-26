@@ -42,6 +42,7 @@ app.get('/register', (req, res) => {
         res.render('register',{
             id: user_session.id,
             username: user_session.username,
+            asAdmin: user_session.asAdmin,
             registerPageNote: registerPageNote
         })
     }
@@ -143,6 +144,7 @@ app.get('/login', (req, res) => {
     res.render('login',{
         id: user_session.id,
         username: user_session.username,
+        asAdmin: user_session.asAdmin,
         loginPageNote: loginPageNote
     })
     loginPageNote = ' '
@@ -232,7 +234,8 @@ app.post('/login', async(req, res) => {
 //LOGOUT
 app.get('/logout', (req, res) => {
     user_session.id = undefined,
-    user_session.username = undefined
+    user_session.username = undefined,
+    user_session.asAdmin = false
     res.redirect('/')
 })
 

@@ -39,6 +39,12 @@
                     <a id='login-nav-item' class="nav-link" href="/login">LOGIN</a>
                     <a id='logout-nav-item' class="nav-link" href="/logout">LOGOUT</a>
                 </li>
+
+                <% if(asAdmin){%>
+                    <div id='admin-nav-item' class="nav-item">
+                        <a class="nav-link" href="/admin" style="color: green">ADMIN</a>
+                    </div>
+                <% }%>
             </ul>
         </div>
     </div>
@@ -50,6 +56,7 @@
     let signUpTab = document.getElementById('sign-up-nav-item')
     let logoutTab = document.getElementById('logout-nav-item')
     let loginTab = document.getElementById('login-nav-item')
+    let adminTab = document.getElementById('admin-nav-item')
 
     greetingUser.style.color = 'white'
 

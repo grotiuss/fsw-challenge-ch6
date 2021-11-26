@@ -7,6 +7,7 @@ let user_session = {}
 router.use((req, res, next) => {
     user_session.id = router.params.id
     user_session.username = router.params.username
+    user_session.asAdmin = router.params.asAdmin
     next()
 })
 
