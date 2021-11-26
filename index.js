@@ -247,6 +247,14 @@ app.get('/create-test', async (req, res) => {
         'asAdmin': true,
         'fullname': 'Grotius Cendikia Hasiholan',
     }
+
+    await User_game.findOne({
+        where: {username: input.username}
+    }).then( (result) =>{
+        if(result){
+            res.redirect('/')
+        }
+    })
     
     await User_game.create({
             username: input.username,
