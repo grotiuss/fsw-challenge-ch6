@@ -7,7 +7,8 @@
     "db:init": "sequelize db:crete",
     "db:undo": "sequelize db:undo",
     "db:reset": "sequelize db:migrate:undo & sequelize db:migrate:undo & sequelize db:migrate:undo",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",

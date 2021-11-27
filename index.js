@@ -30,6 +30,18 @@ let user_session = {
     asAdmin: false
 }
 
+app.use( async(req, res, next) => {
+    if(user_session.id){
+        await User_game.findOne({
+            where:{
+                id: user_session.id
+            }
+        }).then( result => {
+            user_session.asAdmin = result.asAdmin
+        })
+    }
+    next()
+})
 
 app.get('/', (req, res) => {
     res.render('index', user_session)
@@ -170,8 +182,7 @@ app.post('/login', async(req, res) => {
                 if (user.password == input.password) {
                     // res.send('Welcome!')
                     user_session.id = user.id
-                    user_session.username = user.username 
-                    user_session.asAdmin = user.asAdmin
+                    user_session.username = user.username
 
                     //Updating login history
                     let login_succeed = 0

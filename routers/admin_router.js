@@ -106,80 +106,68 @@ router.get('/accounts/delete/:id', async(req, res) =>{
 })
 
 router.get('/accounts/edit/:userId', async(req, res) => {
-    await User_game_biodata.findOne({
-        where: {
-            id: req.params.userId
+    await User_game.findOne({
+        where:{
+            id:req.params.userId
         }
-    })
-        .then((user) =>{
-            res.render('admin/edit', {
+    }).then( async(user_account) => {
+        await User_game_biodata.findOne({
+            where:{
+                id: user_account.id
+            }
+        }).then( user_biodata => {
+            var render_param = {
                 id: user_session.id,
                 username: user_session.username,
-                asAdmin: user_session.username,
-                userId: req.params.userId,
-                registerPageNote: registerPageNote,
-                fullName: user.fullname,
-                age: user.age,
-                address: user.address
-            })
-            registerPageNote = ''
+                asAdmin: user_session.asAdmin,
+                userId: user_biodata.id,
+                fullname: user_biodata.fullname,
+                age: user_biodata.age,
+                address: user_biodata.address,
+                asAdmin_user: user_account.asAdmin,
+                registerPageNote: registerPageNote
+            }
+            res.render('admin/edit', render_param)
+            registerPageNote = ' '
         })
+    })
 })
 router.post('/accounts/edit/:userId', async(req, res) => {
+
     var input = {
         id: req.params.userId,
         fullname: req.body.fullname,
         age: req.body.age,
-        address: req.body.address
+        address: req.body.address,
+        asAdmin_user: req.body.asAdmin
     }
 
-    //Getting the old value
-    var oldValue = {}
-    await User_game_biodata.findOne(
+    await User_game.update(
         {
-            where:{
+            asAdmin: input.asAdmin_user
+        },
+        {
+            where: {
                 id: input.id
             }
         }
-    )
-        .then( async(user) => {
-            oldValue.fullname = user.fullname,
-            oldValue.age = user.age,
-            oldValue.address = user.address
-
-            if ( input.age.length == 0 ) {
-                input.age = oldValue.age
-            } else {
-                input.age = Number(input.age)
-            }
-            
-            if ( input.fullname.length <= 0 ) {
-                input.fullname = oldValue.fullname
-            }
-
-            if ( input.address.length <= 0 ) {
-                input.address = oldValue.address
-            }
-
-            // res.send(input)
-            await User_game_biodata.update(
-                {
-                    fullname: input.fullname,
-                    age: input.age,
-                    address: input.address
-                },
-                {
-                    where:{
-                        id: input.id
-                    }
+    ). then( async(result) => {
+        await User_game_biodata.update(
+            {
+                fullname: input.fullname,
+                age: input.age,
+                address: input.address
+            },
+            {
+                where: {
+                    id: input.id
                 }
-            )
-                .then( () => {
-                    // res.send('Data has been changed')
-                    registerPageNote = 'Data has been changed'
-                    res.redirect('/admin/accounts')
-                })
+            }
+        ).then( () => {
+            registerPageNote = 'Data has been changed.'
+            res.redirect('/admin')
         })
+    })
 })
 
 // router.get('/test', async(req, res) => {
